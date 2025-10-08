@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// data models
+model ContentGroup {
+  id          Int       @id @default(autoincrement())
+  ref         String
+  name        String?
+  description String?
+  dateCreated DateTime?
+  noOfSubs    Int?
+  source      String
+  type        String
+  contents    Content[]
+}
+
+model Content {
+  id          Int           @id @default(autoincrement())
+  grp         ContentGroup? @relation(fields: [grpId], references: [id])
+  grpId       Int?
+  url         String
+  length      Int?
+  viewCount   Int?
+  description String?
+  thumbnail   String?
+  title       String?
+  type        String
+  summary     String?
+}
