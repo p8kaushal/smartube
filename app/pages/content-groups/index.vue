@@ -4,7 +4,7 @@
     <NuxtLink to="/content-groups/create">Create Content Group</NuxtLink>
     <ul>
       <li v-for="contentGroup in contentGroups" :key="contentGroup.id">
-        <NuxtLink :to="`/content-groups/${contentGroup.id}`">{{ contentGroup.name }}</NuxtLink>
+        <NuxtLink :to="`/content-groups/${contentGroup.id}`">{{ contentGroup.id }}</NuxtLink>
       </li>
     </ul>
   </div>
