@@ -1,10 +1,13 @@
 <template>
-<NuxtLayout>
-  <NuxtPage />
-  <NuxtLoading />
-  <NuxtError />
-  <NuxtErrorBoundary />
-  <NuxtClientFallback />
-  <NuxtDevTools />
-</NuxtLayout>
+  <UApp>
+    <NavigationHeader />
+
+    <UMain>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UMain>
+
+    <NavigationFooter />
+  </UApp>
 </template>
